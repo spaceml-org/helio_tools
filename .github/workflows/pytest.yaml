@@ -43,13 +43,13 @@ jobs:
 
       # Run the unit tests and build the coverage report
       - name: Run Tests
-        run: poetry run pytest -v --cov=./fieldx --cov-report=xml:./coverage.xml
+        run: poetry run pytest -v --cov=./helio_tools --cov-report=xml:./coverage.xml
 
       - name: Upload code coverage
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage.xml
-          name: fieldx
+          name: helio_tools
           flags: unittests
           env_vars: OS,PYTHON
