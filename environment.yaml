@@ -1,0 +1,46 @@
+name: helio_tools
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  # Standard Libraries
+  - numpy # Numerical Linear Algebra
+  - scipy # Scientific Computing
+  - astropy
+  - sunpy
+  - pandas # Data structure
+  - scikit-learn # Machine Learning
+  # PLOTTING LIBRARY
+  - matplotlib # standard plotting library
+  - seaborn # Stats viz library
+  # Storage
+  - conda-forge::netCDF4
+  - conda-forge::zarr
+  # GUI
+  - conda-forge::ipywidgets
+  - ipykernel
+  - conda-forge::tqdm
+  - pip
+  - pip:
+      - toolz
+      # formatting
+      - black
+      - pylint
+      - isort
+      - flake8
+      - mypy
+      - pytest
+      - pre-commit
+      # Notebook stuff
+      - autoroot
+      - pyprojroot
+      - python-dotenv
+      # logging
+      - loguru
+      # plotting
+      - celluloid
+      - corner
+      - tabulate
+      # experiment
+      - hydra-core
+      - hydra-zen
