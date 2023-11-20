@@ -23,7 +23,7 @@ class SDODownloader:
         self.n_workers = n_workers
         [os.makedirs(os.path.join(base_path, wl), exist_ok=True) for wl in self.wavelengths + ['6173']]
 
-        self.drms_client = drms.Client(email=email, verbose=False)
+        self.drms_client = drms.Client(email=email)
 
     def download(self, sample):
         header, segment, t = sample
@@ -142,3 +142,20 @@ class SDODownloader:
             p.map(self.download, queue)
 
         logging.info('Finished: %s' % id)
+
+
+def main():
+    email = "chri.schirni@hotmail.de"
+    base_path = "/home/juanjohn/data/helio/sdo"
+    downloader_sdo = SDODownloader(base_path=base_path, email=email, n_workers=8)
+
+    start_date = datetime(2022, 3, 1)
+    end_date = datetime(2023, 3, 2)
+    import tqdm
+    for d in tqdm.tqdm([start_date + i * timedelta(hours=12) for i in
+                        range((end_date - start_date) // timedelta(hours=12))]):
+        downloader_sdo.downloadDate(d)
+
+
+if __name__ == '__main__':
+    main()

@@ -2,12 +2,14 @@ name: helio_tools
 channels:
   - conda-forge
 dependencies:
-  - python=3.11
+  - python=3.10
   # Standard Libraries
   - numpy # Numerical Linear Algebra
   - scipy # Scientific Computing
+  - scikit-image
   - astropy
   - sunpy
+  - conda-forge::aiapy
   - pandas # Data structure
   - scikit-learn # Machine Learning
   # PLOTTING LIBRARY
@@ -16,6 +18,7 @@ dependencies:
   # Storage
   - conda-forge::netCDF4
   - conda-forge::zarr
+  - conda-forge::gdal>=3.4.1,<=3.6.3
   # GUI
   - conda-forge::ipywidgets
   - ipykernel
@@ -23,6 +26,8 @@ dependencies:
   - pip
   - pip:
       - toolz
+      - einops
+      - rastervision==0.21.3
       # formatting
       - black
       - pylint

@@ -1,0 +1,15 @@
+_target_: __main__.ImageDataReader
+data_dir: /home/juanjohn/data/helio/sdo_png/304
+ext: .png
+transforms:
+  _target_: toolz.functoolz.compose_left
+  _args_:
+  - _target_: __main__.random_patch_2D
+    _partial_: true
+    patch_size:
+    - 256
+    - 256
+    random_state: null
+  - _target_: einops.einops.rearrange
+    _partial_: true
+    pattern: H W 1 -> 1 H W
