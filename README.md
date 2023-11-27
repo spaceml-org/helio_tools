@@ -45,19 +45,18 @@ See [notebook](./notebooks/3.2_rastervision.ipynb) for details.
 We can install it directly through pip
 
 ```bash
-pip install git+https://github.com/jejjohnson/helio_tools
+pip install git+https://github.com/spaceml-org/helio_tools
 ```
 
 We also use poetry for the development environment.
 
 ```bash
-git clone https://github.com/jejjohnson/helio_tools.git
+git clone https://github.com/spaceml-org/helio_tools
 cd helio_tools
 conda create -n helio_tools python=3.11 poetry
+conda activate helio_tools
 poetry install
 ```
-
-
 
 ---
 ## References
