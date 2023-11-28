@@ -40,11 +40,12 @@ class SOLODownloader:
         [os.makedirs(os.path.join(base_path, wl), exist_ok=True)
          for wl in self.wavelengths]
 
-    def downloadDate(self, date: datetime):
+    def downloadDate(self, date: datetime, download_hri: bool = False):
         """Download FITS data for a specific date.
 
         Args:
             date (datetime): date to download
+            download_hri (bool): whether to download HRI data or not
 
         Example Usage:
 
@@ -57,8 +58,11 @@ class SOLODownloader:
             # Download FSI Sensor data
             for wl in self.wavelengths[1::]:
                 files += [self.downloadFSI(date, wl)]
-            # for wl in self.wavelengths[0]:
-            #    files += [self.downloadHRI(date, wl)]
+
+            # Download HRI Sensor data
+            if download_hri:
+                for wl in self.wavelengths[0]:
+                    files += [self.downloadHRI(date, wl)]
             logging.info('Download complete %s' % date.isoformat())
         except Exception as ex:
             logging.error('Unable to download %s: %s' %
@@ -133,7 +137,6 @@ class SOLODownloader:
                 continue
             file = files[0]
             # header = Map(file.meta)
-
             shutil.move(file, file_path)
             return file_path
 
