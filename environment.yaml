@@ -9,6 +9,7 @@ dependencies:
   - scikit-image
   - astropy
   - sunpy
+  - sunpy-soar
   - conda-forge::aiapy
   - pandas # Data structure
   - scikit-learn # Machine Learning
