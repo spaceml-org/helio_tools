@@ -1,3 +1,9 @@
+"""
+Script to download data products from the SolO database using Fido, a sunpy module meant for retrieving data from solar missions.
+
+In this case it is downloading images from the EUI (extreme ultraviolet imager) from the Solar Orbiter (SolO) mission.
+
+"""
 import argparse
 import logging
 import os
@@ -26,7 +32,7 @@ DEFAULT_WAVELENGTHS = ['eui-hri174-image',
 class SOLODownloader:
 
     def __init__(self, base_path: str = None,
-                 wavelengths: list[str | int | float] = DEFAULT_WAVELENGTHS, ) -> None:
+                 wavelengths: list[str | int | float] = DEFAULT_WAVELENGTHS) -> None:
         self.base_path = base_path
         self.wavelengths = wavelengths
 
@@ -35,6 +41,17 @@ class SOLODownloader:
          for wl in self.wavelengths]
 
     def downloadDate(self, date: datetime):
+        """Download FITS data for a specific date.
+
+        Args:
+            date (datetime): date to download
+
+        Example Usage:
+
+                >>> downloader_solo = SOLODownloader(...)
+                >>> downloader_solo.downloadDate(datetime(2022, 3, 1))  
+
+        """
         files = []
         try:
             # Download FSI Sensor data
@@ -49,6 +66,21 @@ class SOLODownloader:
             [os.remove(f) for f in files if os.path.exists(f)]
 
     def downloadFSI(self, query_date, wl):
+        """
+        Download FSI (full sun) data for a specific date.
+
+        Args:
+            query_date (datetime): date to download
+            wl (str): wavelength to download
+        Returns:
+            file_path (str): path to downloaded file
+
+        Example Usage:
+
+            >>> downloader_solo = SOLODownloader(...)
+            >>> downloader_solo.downloadFSI(datetime(2022, 3, 1), 'eui-fsi174-image')
+
+        """
         file_path = os.path.join(self.base_path, wl, "%s.fits" %
                                  query_date.isoformat("T", timespec='seconds'))
         if os.path.exists(file_path):
@@ -80,6 +112,9 @@ class SOLODownloader:
                         (query_date.isoformat(), wl))
 
     def downloadHRI(self, query_date, wl):
+        """
+        Currently unused, but retriever for HRI (high res) data 
+        """
         file_path = os.path.join(self.base_path, wl, "%s.fits" %
                                  query_date.isoformat("T", timespec='seconds'))
         if os.path.exists(file_path):
