@@ -64,3 +64,13 @@ poetry install
 **Software**
 
 * [InstrumentToInstrument](https://github.com/RobertJaro/InstrumentToInstrument/tree/master) - Instrument-to-Instrument Translation.
+
+**Glossary**
+
+* [SDO](https://sdo.gsfc.nasa.gov/) - Solar Dynamics Observatory.
+* [AIA](https://sdo.gsfc.nasa.gov/data/) - Atmospheric Imaging Assembly.
+* [HMI](https://sdo.gsfc.nasa.gov/data/) - Helioseismic and Magnetic Imager.
+* [EVE](https://lasp.colorado.edu/home/eve/data/) - Extreme Ultraviolet Variability Experiment.
+* [SolO](https://sci.esa.int/web/solar-orbiter) - Solar Orbiter.
+* FSI - Full Sun Imager.
+* [SOHO](https://soho.nascom.nasa.gov//) - Solar and Heliospheric Observatory.
