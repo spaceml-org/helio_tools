@@ -147,3 +147,5 @@ datasets/*
 \jbook/_build/
 \_build/
 \.idea/
+
+**notebooks/*data
