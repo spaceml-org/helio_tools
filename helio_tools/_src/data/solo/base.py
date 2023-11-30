@@ -89,14 +89,14 @@ class SOLODownloader:
                                  query_date.isoformat("T", timespec='seconds'))
         if os.path.exists(file_path):
             return file_path
-        #
+
         search = Fido.search(a.Time(query_date - timedelta(minutes=15), query_date + timedelta(minutes=15)),
                              a.Instrument('EUI'), a.soar.Product(wl), a.Level(2))
         assert search.file_num > 0, "No data found for %s (%s)" % (
             query_date.isoformat(), wl)
         search = sorted(search['soar'], key=lambda x: abs(
             pd.to_datetime(x['Start time']) - query_date).total_seconds())
-        #
+
         for entry in search:
             files = Fido.fetch(entry, path=self.base_path, progress=False)
             if len(files) != 1:
@@ -145,7 +145,8 @@ class SOLODownloader:
 
 
 if __name__ == '__main__':
-    base_path = "/home/juanjohn/data/helio/solo"
+    import os
+    base_path = os.path.join(os.path.expanduser('~'), 'solo-data')
 
     downloader_solo = SOLODownloader(base_path=base_path)
     start_date = datetime(2021, 2, 22, 0, 0)

@@ -182,8 +182,10 @@ class SDODownloader:
 
 
 def main():
-    email = "chri.schirni@hotmail.de"
-    base_path = "/home/juanjohn/data/helio/sdo"
+    import os
+    email = os.getenv('SDO_EMAIL')
+    base_path = os.path.join(os.path.expanduser('~'), 'sdo-data')
+
     downloader_sdo = SDODownloader(
         base_path=base_path, email=email, n_workers=8)
 
