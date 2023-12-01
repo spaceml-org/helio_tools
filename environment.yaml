@@ -13,6 +13,7 @@ dependencies:
   - conda-forge::aiapy
   - pandas # Data structure
   - scikit-learn # Machine Learning
+  - joblib # Parallelization
   # PLOTTING LIBRARY
   - matplotlib # standard plotting library
   - seaborn # Stats viz library
