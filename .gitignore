@@ -148,4 +148,5 @@ datasets/*
 \_build/
 \.idea/
 
-**notebooks/*data
+**notebooks/*data*
+**notebooks/*png*
