@@ -4,17 +4,17 @@ from dataclasses import dataclass
 DEFAULT_WAVELENGTHS = [171, 193, 211, 304]
 
 
-
 class SDOData:
     email: str
     base_path: str
-    wavelengths: List[str | int | float]=DEFAULT_WAVELENGTHS
+    wavelengths: List[str | int | float] = DEFAULT_WAVELENGTHS
     n_workers: int
 
-def download_soho(
+
+def download_sdo(
         email: str, base_path: str,
-        wavelengths: List[str | int | float]=DEFAULT_WAVELENGTHS,
-        n_workers: int=5
+        wavelengths: List[str | int | float] = DEFAULT_WAVELENGTHS,
+        n_workers: int = 5
 ) -> None:
     """A simple download script do down
 

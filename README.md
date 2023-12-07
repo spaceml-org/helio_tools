@@ -45,19 +45,18 @@ See [notebook](./notebooks/3.2_rastervision.ipynb) for details.
 We can install it directly through pip
 
 ```bash
-pip install git+https://github.com/jejjohnson/helio_tools
+pip install git+https://github.com/spaceml-org/helio_tools
 ```
 
 We also use poetry for the development environment.
 
 ```bash
-git clone https://github.com/jejjohnson/helio_tools.git
+git clone https://github.com/spaceml-org/helio_tools
 cd helio_tools
 conda create -n helio_tools python=3.11 poetry
+conda activate helio_tools
 poetry install
 ```
-
-
 
 ---
 ## References
@@ -65,3 +64,13 @@ poetry install
 **Software**
 
 * [InstrumentToInstrument](https://github.com/RobertJaro/InstrumentToInstrument/tree/master) - Instrument-to-Instrument Translation.
+
+**Glossary**
+
+* [SDO](https://sdo.gsfc.nasa.gov/) - Solar Dynamics Observatory.
+* [AIA](https://sdo.gsfc.nasa.gov/data/) - Atmospheric Imaging Assembly.
+* [HMI](https://sdo.gsfc.nasa.gov/data/) - Helioseismic and Magnetic Imager.
+* [EVE](https://lasp.colorado.edu/home/eve/data/) - Extreme Ultraviolet Variability Experiment.
+* [SolO](https://sci.esa.int/web/solar-orbiter) - Solar Orbiter.
+* FSI - Full Sun Imager.
+* [SOHO](https://soho.nascom.nasa.gov//) - Solar and Heliospheric Observatory.
