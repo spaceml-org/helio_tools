@@ -28,6 +28,7 @@ dependencies:
   - pip
   - pip:
       - toolz
+      - typer
       - einops
       - rastervision==0.21.3
       # formatting
