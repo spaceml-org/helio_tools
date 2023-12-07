@@ -64,6 +64,7 @@ poetry install
 We provide a test dataset for the notebooks containing data from SDO/AIA, EUI/FSI, EUI/HRI and PROBA2/SWAP which can be downloaded with gsutil 
 ```bash
 gsutil cp -r gs://iti-dataset/ [local_path]
+```
 
 ---
 ## References
