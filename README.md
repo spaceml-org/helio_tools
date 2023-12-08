@@ -46,6 +46,7 @@ We can install it directly through pip
 
 ```bash
 pip install git+https://github.com/spaceml-org/helio_tools
+pip install gsutil
 ```
 
 We also use poetry for the development environment.
@@ -56,6 +57,13 @@ cd helio_tools
 conda create -n helio_tools python=3.11 poetry
 conda activate helio_tools
 poetry install
+```
+
+---
+## Test Dataset
+We provide a test dataset for the notebooks containing data from SDO/AIA, EUI/FSI, EUI/HRI and PROBA2/SWAP which can be downloaded with gsutil 
+```bash
+gsutil cp -r gs://iti-dataset/ [local_path]
 ```
 
 ---
