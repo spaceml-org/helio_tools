@@ -198,6 +198,8 @@ def download_solo_data(
     if base_path is None:
         base_path = os.getcwd() + "/solo-data"
 
+    solo_downloader = SOLODownloader(base_path=base_path)
+
     logger.info(f"BasePath: {base_path}")
 
     num_months = get_num_months(start_date, end_date)
@@ -225,7 +227,7 @@ def download_solo_data(
 
         for isubdate in spbar:
             spbar.set_description(f"Date: {isubdate}")
-            downloader_solo.downloadDate(isubdate)
+            solo_downloader.downloadDate(isubdate)
 
 
 if __name__ == "__main__":
