@@ -324,6 +324,27 @@ class ShiftMeanEditor(Editor):
 
 
 class NormalizeRadiusEditor(Editor):
+    """
+
+    Normalizes the radius of a sunpy map to a target value. Optionally crops the map to the specified resolution.
+
+    Parameters
+    ----------
+    resolution : `int`
+        The target resolution of the map.
+    padding_factor : `float`
+        The padding factor for the solar radius. Defaults to 0.1.
+    crop : `bool`
+        Whether to crop the map to the specified resolution. Defaults to True.
+
+    Usage:
+
+    >>> import helio_tools as ht
+    >>> editor = ht.NormalizeRadiusEditor(resolution=512)
+    >>> s_map = editor(s_map)
+
+    """
+
     def __init__(self, resolution, padding_factor=0.1, crop=True, **kwargs):
         self.padding_factor = padding_factor
         self.resolution = resolution
