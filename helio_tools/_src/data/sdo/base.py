@@ -213,8 +213,8 @@ def download_sdo_data(
     logger.info(f"BasePath: {base_path}")
 
     # check datetime object
-    start_date: datetime = check_datetime_format(start_date)
-    end_date: datetime = check_datetime_format(end_date)
+    start_date: datetime = check_datetime_format(start_date, sensor="sodo")
+    end_date: datetime = check_datetime_format(end_date, sensor="sodo")
 
     logger.info(f"Period: {start_date}-{end_date}")
 

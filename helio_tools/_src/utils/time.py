@@ -2,24 +2,17 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 
-def check_datetime_format(datetime_str: str) -> datetime:
-    try:
-        datetime_obj = datetime.strptime(datetime_str, "%Y-%m-%d")
-        return datetime_obj
-    except ValueError:
-        msg = "Datetime string format is incorrect."
-        msg += f"\nInput: {datetime_str}"
-        print(msg)
+DATETIME_FORMATS = {"solo": "%Y-%m-%d %H:%M", "sodo": "%Y-%m-%d"}
 
 
-def check_datetime_format_solo(datetime_str: str) -> datetime:
+def check_datetime_format(datetime_str: str, sensor: str = "sodo") -> datetime:
     try:
-        datetime_obj = datetime.strptime(datetime_str, "%Y-%m-%d %H:%M")
+        datetime_obj = datetime.strptime(datetime_str, DATETIME_FORMATS[sensor])
         return datetime_obj
     except ValueError:
-        msg = "Datetime string format is incorrect."
+        msg = f"Datetime string format is incorrect for sensor: {sensor}."
         msg += f"\nInput: {datetime_str}"
-        print(msg)
+        raise ValueError(msg)
 
 
 def get_num_months(start_date: datetime, end_date: datetime) -> int:

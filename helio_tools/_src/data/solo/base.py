@@ -28,7 +28,7 @@ from tqdm import tqdm
 from loguru import logger
 import typer
 from helio_tools._src.utils.time import (
-    check_datetime_format_solo,
+    check_datetime_format,
     get_num_months,
     get_month_dates,
 )
@@ -192,8 +192,8 @@ def download_solo_data(
     end_date: str = "2021-06-2 00:00",
     base_path: Optional[str] = None,
 ):
-    start_date = check_datetime_format_solo(start_date)
-    end_date = check_datetime_format_solo(end_date)
+    start_date = check_datetime_format(start_date, sensor="solo")
+    end_date = check_datetime_format(end_date, sensor="solo")
     logger.info(f"Period: {start_date} --- {end_date}")
     if base_path is None:
         base_path = os.getcwd() + "/solo-data"
