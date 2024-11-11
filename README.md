@@ -1,4 +1,4 @@
-# HelioTools (In Progress)
+# HelioTools 
 [![CodeFactor](https://www.codefactor.io/repository/github/jejjohnson/helio_tools/badge)](https://www.codefactor.io/repository/github/jejjohnson/helio_tools)
 [![codecov](https://codecov.io/gh/jejjohnson/helio_tools/branch/main/graph/badge.svg?token=YGPQQEAK91)](https://codecov.io/gh/jejjohnson/helio_tools)
 
